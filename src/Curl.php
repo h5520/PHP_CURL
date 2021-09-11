@@ -7,10 +7,10 @@ class Curl
 	private $url;
 	// 请求方式
 	private $method;
-	// 请求头信息
-	private $header;
 	// https 请求
 	private $https;
+	// 请求头信息
+	private $header;
 	// 请求时间，超过这个时间自动断开请求
 	private $timeout;
 
@@ -24,12 +24,12 @@ class Curl
 	 * @param    [type]                   $https
 	 * @param    [type]                   $timeout
 	 */
-	public function __construct($url,$method = "POST",$header = ["content-type: application/json"],$https = false,$timeout = 60)
+	public function __construct($url,$method = "POST",$https = false,$header = [],$timeout = 60)
 	{
 		$this->url = $url;
 		$this->method = $method;
-		$this->header = $header;
 		$this->https = $https;
+		$this->header = $header;
 		$this->timeout = $timeout;
 	}
 
@@ -74,10 +74,15 @@ class Curl
         }
 
         curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
-        // 模拟的header头
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->header);
-        // 设置不需要头信息
-        // curl_setopt($ch, CURLOPT_HEADER, false);
+        
+        if($this->header){
+        	// 模拟的header头
+	        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->header);
+        }else{
+        	// 设置不需要头信息
+        	curl_setopt($ch, CURLOPT_HEADER, false);
+        }
+        
         // 执行请求
         $result = curl_exec($ch);
 
