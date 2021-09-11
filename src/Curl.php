@@ -6,13 +6,13 @@ class Curl
 	// url
 	private $url;
 	// 请求方式
-	private $method = "POST";
+	private $method;
 	// 请求头信息
-	private $header = ["content-type: application/json"];
+	private $header;
 	// https 请求
-	private $https = false;
+	private $https;
 	// 请求时间，超过这个时间自动断开请求
-	private $timeout = 60;
+	private $timeout;
 
 	/**
 	 * 初始化方法
@@ -24,7 +24,7 @@ class Curl
 	 * @param    [type]                   $https
 	 * @param    [type]                   $timeout
 	 */
-	public function __construct($url,$method,$header,$https,$timeout)
+	public function __construct($url,$method = "POST",$header = ["content-type: application/json"],$https = false,$timeout = 60)
 	{
 		$this->url = $url;
 		$this->method = $method;
