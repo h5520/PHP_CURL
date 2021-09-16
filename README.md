@@ -12,7 +12,7 @@ use houzhonghua\curl\Curl;
 
 ## 请求接口
 ```php
-$query = new Curl($url,$method,$header,$https,$timeout);
+$query = new Curl($url,$method,$https,$header,$timeout);
 $res = $query->curl($data);
 print_r($res);
 ```
