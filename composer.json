@@ -1,6 +1,6 @@
 {
-    "name": "houzhonghua/mapRange",
-    "description": "Calculate the range and distance according to longitude and latitude.",
+    "name": "houzhonghua/curl",
+    "description": "WeixinAPI",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "houzhonghua\\mapRange\\": "src/"
+            "houzhonghua\\curl\\": "src/"
         }
     }
 }
