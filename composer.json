@@ -1,6 +1,6 @@
 {
     "name": "houzhonghua/curl",
-    "description": "WeixinAPI",
+    "description": "封装的CURL方法",
     "type": "library",
     "license": "MIT",
     "authors": [
